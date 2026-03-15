@@ -1,0 +1,6 @@
+New-Item .python-version
+```
+
+Click on `.python-version` in the sidebar and type exactly this inside:
+```
+3.11
