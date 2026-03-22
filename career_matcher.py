@@ -20,7 +20,9 @@ def match_careers(user_skills):
             "career": career_name,
             "match": match_percent,
             "description": career_data["description"],
-            "required_skills": career_data["required_skills"]
+            "required_skills": career_data["required_skills"],
+            "avg_salary": career_data.get("avg_salary", "N/A"),
+            "demand": career_data.get("demand", "N/A")
         })
 
     results.sort(key=lambda x: x["match"], reverse=True)

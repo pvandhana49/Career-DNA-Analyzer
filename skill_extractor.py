@@ -1,14 +1,14 @@
-import spacy
-from data.skills_db import SKILLS_LIST
-
-nlp = spacy.load("en_core_web_sm")
+from data.skills_db import SKILLS_LIST, SKILL_SYNONYMS
 
 def extract_skills(text):
     text_lower = text.lower()
     found_skills = []
 
-    for skill in SKILLS_LIST:
-        if skill.lower() in text_lower:
-            found_skills.append(skill)
+    for skill, synonyms in SKILL_SYNONYMS.items():
+        for synonym in synonyms:
+            if synonym in text_lower:
+                if skill not in found_skills:
+                    found_skills.append(skill)
+                break
 
     return found_skills
